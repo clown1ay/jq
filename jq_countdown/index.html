@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>
+        <span>
+            <p>5</p>
+        </span>
+            <button id="btn">点击开始</button>
+    </div>
+
+    <script type="text/javascript" src="..\jq ajax\jquery-1.10.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var count = 5;
+                setInterval(function(){
+                    count--;
+                    if(count <= 0){
+                        alert("计时完毕");
+                        return false;
+                    }
+                    $("span").html("<p>" + count + "<p>");
+                },1000)
+            })
+        })
+
+    </script>
+</body>
+</html>

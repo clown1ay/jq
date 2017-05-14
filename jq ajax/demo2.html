@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax get()</title>
+
+</head>
+<body>
+<script src="jquery-1.10.0.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.get("test2.php",function(data,status){
+                alert("data:" +data+ "\nstatus:" + status);
+            });
+        });
+    });
+    </script>
+<button>发送一个 HTTP GET 请求并获取返回结果</button>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax post()</title>
+</head>
+<body>
+<script src="jquery-1.10.0.js"></script>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.post("test2_2.php",
+                    {
+                        name:"第九网络组",
+                        url:"www.9thnetwork.com"
+                    },
+                        function(data,status){
+                            alert("data:\n" + data + "\nstatus:" + status);
+                        }
+            )
+        });
+    });
+</script>
+<button>发送一个 HTTP POST 请求并获取返回结果</button>
+</body>
+</html>
+-->

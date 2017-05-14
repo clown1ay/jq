@@ -1,0 +1,54 @@
+/*#content{
+    width: 800px;
+    margin: 10px auto;
+    height: 500px;
+}*/
+#left_content{
+    background: #eee;
+    border: 1px solid #aaaaaa;
+    width: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+#rigth_content{
+    background: #eee;
+    border: 1px solid #aaaaaa;
+    width: 586px;
+    float: left;
+}
+
+.global-module{
+    position: relative;
+    background: #eeeeee;
+    padding-bottom:8px;
+}
+
+.module-up-down{
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.procatalog .m-treeview li.m-expanded{
+    padding-left: 16px;
+}
+
+.procatalog .m-treeview li.m-expanded ul li{
+}
+
+.scorllNews li{
+    padding:8px 16px;
+}
+.m-expanded span{
+    padding-left: 10px;
+}
+
+.m-expanded ul li{
+    padding:5px 16px;
+}
+h3{
+    background:#b4b4b4;
+    padding: 5px;
+}

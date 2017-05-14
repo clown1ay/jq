@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery Validation 插件</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="div1"><h2>使用 jQuery AJAX 修改该文本</h2></div>
+<button>获取外部内容</button>
+<form id="demoForm">
+    <fieldset>
+        <legend>用户登录</legend>
+        <p id="info"></p>
+
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="手机号/qq/邮箱"/>
+        </p>
+
+        <p>
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码"/>
+        </p>
+
+        <p>
+            <lable for="confirm_password">确认密码</lable>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="请重复输入密码"/>
+        </p>
+
+        <p>
+           <button id="check" >检查表单</button>
+        </p>
+
+        <p>
+            <input type="submit" value="登录"/>
+        </p>
+    </fieldset>
+</form>
+<script src="vendor/jquery-1.10.0.js"></script>
+<script src="vendor/jquery.validate-1.13.1.js"></script>
+<script>
+    $(document).ready(function(){
+        var validate;
+        validate = $("#demoForm").validate({
+            debug:true,
+            rules:{
+                username:{
+                   // required:true,
+                    //minlength:2,
+                    //maxlength:10,
+                    email:true
+                },
+                password:{
+                    required:true,
+                    minlength:2,
+                    maxlength:10
+                },
+                confirm_password:{
+                    required:true,
+                    minlength:2,
+                    maxlength:10,
+                    equalTo:"#password"
+                }
+            },
+            messages:{
+                username:{
+                    //required:"请输入正确的用户名",
+                    //minlength:"用户名最短长度为2",
+                    //maxlength:"用户名最长长度为10"
+                    email:"用户名为邮箱"
+                },
+                password:{
+                    required:"请输入密码",
+                    minlength:"用户名最短长度为2",
+                    maxlength:"用户名最长长度为10"
+                },
+                confirm_password:{
+                    required:"请输入密码",
+                    minlength:"用户名最短长度为2",
+                    maxlength:"用户名最长长度为10",
+                    equalTo:"两次输入密码不一致"
+                }
+            }
+
+        });
+            .$("#check").click(function(){
+            alert($("#demoFome").valid()?"表单正确":"表单错误");
+        });
+    })
+</script>
+
+</body>
+</html>

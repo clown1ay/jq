@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+        *{
+            font-family: 微软雅黑;
+            color: #c7254e;
+            font-size: 1.2rem;
+        }
+        input{
+            border: hidden;
+            border-bottom: 1px solid #cccccc;
+        }
+        li{
+            float: left;
+            list-style-type: none;
+        }
+        p{
+            float: none;
+        }
+        #submit{
+            border: 1px solid #b4b4b4;
+        }
+    </style>
+</head>
+<body>
+<form id="demoForm">
+    <fieldset>
+        <legend>注册</legend>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="username">
+        </p>
+        <P>
+            <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <input type="password" id="password" name="password" placeholder="password">
+        </P>
+        <p>
+            <lable for="confirm_password">确认密码</lable>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password">
+        </p>
+        <p>
+            <label for="email_address">邮箱地址</label>
+            <input type="email" id="email_address" name="email_address" placeholder="email address">
+        </p>
+        <p>
+            <label>选择正确时间：</label>
+            <ul>
+                <li>
+                    <input type="radio" id="radio1" value="1" name="radio">
+                    <label>14/02/07</label>
+                </li>
+                <li>
+                    <input type="radio" id="radio2" value="1" name="radio">
+                    <label>02/14/07</label>
+                </li>
+            </ul></br>
+        </p>
+        <p>
+            <input type="checkbox" id="term" name="term">
+            <lable>我已阅读并接受使用条款.</lable>
+            <label></label>
+        </p>
+        <p>
+            <button id="check">检查表单</button>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="注册" id="submit" >
+        </p>
+  </fieldset>
+</form>
+<script src="vendor/jquery-1.10.0.js"></script>
+<script src="vendor/jquery.validate-1.13.1.js"></script>
+<script>
+    var validate;
+    $("document").ready(function(){
+        validate = $("#demoForm").validate({
+            debug:true,
+            rules:{
+                username:{
+                    required:true,
+                    rangelength:[2,10]
+                },
+                password:{
+                    required:true,
+                    rangelength:[2,10]
+                },
+                confirm_password:{
+                    required:true,
+                    equalTo:"#password"
+                },
+                email_address:{
+                    required:true,
+                    email:true
+                },
+                radio:{
+                    required:true
+                },
+                redio:{
+                    required:true
+                },
+                term:{
+                    required:true
+                }
+            },
+            messages:{
+                username:{
+                    required:"用户名必填",
+                    rangelength:"用户名长度为2~10"
+                },
+                password:{
+                    required:"密码必填",
+                    rangelength:"密码长度为2~10"
+                },
+                confirm_password:{
+                    required:"请确认密码",
+                    equalTo:"两次输入密码不一致"
+                },
+                email_address:{
+                    required:"邮箱地址必填",
+                    email:"请输入正确的邮箱地址"
+                },
+                radio:{
+                    required:"请勾选"
+                },
+                redio:{
+                    required:"请勾选"
+                },
+                term:{
+                    required:"请勾选"
+                }
+            },
+            errorPlacement: function(error, element) {
+                if (element.is(":radio"))
+                    error.appendTo(element.parent().next());
+                else if (element.is(":checkbox"))
+                    error.appendTo(element.next());
+                else
+                    error.appendTo(element.parent());
+            }
+        });
+        $("#check").click (function() {
+            alert($("#demoForm").valid() ? "填写正确！" : "填写错误！");
+        })
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

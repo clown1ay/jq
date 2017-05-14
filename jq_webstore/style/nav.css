@@ -1,0 +1,54 @@
+#navigation{
+    width: 784px;
+    padding: 8px;
+    margin: 8px auto;
+    background: #3b5998;
+    height: 18px;
+}
+
+#navigation ul li{
+    float: left;
+    margin-left: 14px;
+    position: relative;
+    z-index: 100;
+}
+
+#navigation ul li a{
+    display: block;
+    padding: 0 8px;
+    background: #eeeeee;
+    font-weight: 700;
+}
+
+#navigation ul li ul{
+    display: none;
+    background-color: #88c366;
+    position: absolute;
+    width: 80px;
+    overflow: hidden;
+}
+
+#navigation ul li:hover ul
+
+#navigation ul li ul li{
+    border-bottom: 1px solid #bbb;
+    text-align: left;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
